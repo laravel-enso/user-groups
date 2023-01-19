@@ -11,7 +11,7 @@ use LaravelEnso\Rememberable\Traits\Rememberable;
 use LaravelEnso\Roles\Models\Role;
 use LaravelEnso\Roles\Traits\HasRoles;
 use LaravelEnso\Tables\Traits\TableCache;
-use LaravelEnso\UserGroups\Enums\UserGroups;
+use LaravelEnso\UserGroups\Enums\UserGroup as Enum;
 use LaravelEnso\UserGroups\Exceptions\Conflict;
 use LaravelEnso\Users\Models\User;
 
@@ -52,7 +52,7 @@ class UserGroup extends Model
         return $query->when(! $isSuperior, fn ($query) => $query->when(
             Config::get('enso.user-groups.restrictedToOwnGroup'),
             fn ($query) => $query->whereId(Auth::user()->group_id),
-            fn ($query) => $query->where('id', '<>', UserGroups::Admin),
+            fn ($query) => $query->where('id', '<>', Enum::Admin),
         ));
     }
 }
