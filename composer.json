@@ -31,7 +31,7 @@
     ],
     "homepage": "https://www.laravel-enso.com",
     "require": {
-        "laravel-enso/core": "^9.0",
+        "laravel-enso/core": "^10.0",
         "laravel-enso/enums": "^2.0",
         "laravel-enso/forms": "^4.0",
         "laravel-enso/helpers": "^3.0",
