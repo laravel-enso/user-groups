@@ -10,6 +10,7 @@ use LaravelEnso\Tables\Traits\Tests\Datatable;
 use LaravelEnso\UserGroups\Models\UserGroup;
 use LaravelEnso\Users\Models\User;
 use Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
 
 class UserGroupTest extends TestCase
 {
@@ -34,7 +35,7 @@ class UserGroupTest extends TestCase
         $this->testModel = UserGroup::factory()->make();
     }
 
-    /** @test */
+    #[Test]
     public function can_store_user_group()
     {
         $response = $this->post(
@@ -53,7 +54,7 @@ class UserGroupTest extends TestCase
             ]);
     }
 
-    /** @test */
+    #[Test]
     public function can_update_user_group()
     {
         $this->testModel->save();
@@ -73,7 +74,7 @@ class UserGroupTest extends TestCase
         $this->assertEquals('edited', $this->testModel->fresh()->name);
     }
 
-    /** @test */
+    #[Test]
     public function cant_destroy_user_group_when_having_users_attached()
     {
         $this->testModel->save();
