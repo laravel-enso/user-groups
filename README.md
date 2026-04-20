@@ -59,6 +59,12 @@ Main classes:
 - `LaravelEnso\UserGroups\Models\UserGroup`
 - `LaravelEnso\UserGroups\Enums\UserGroups`
 
+## API
+
+This package exposes its backend integration through the routes, controllers, services, jobs, and configuration points referenced in the usage examples above.
+
+Consumers should rely on the published config keys, documented route groups, and explicit service classes shown in the examples. Internal helper classes, listeners, casts, and background jobs are implementation details unless the README calls them out as extension points.
+
 ## Depends On
 
 Required Enso packages:
