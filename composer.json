@@ -1,7 +1,7 @@
 {
     "name": "laravel-enso/user-groups",
     "type": "library",
-    "description": "User groups dependency for Laravel Enso",
+    "description": "User group management backend for Laravel Enso",
     "license": "MIT",
     "authors": [
         {
@@ -29,7 +29,7 @@
         "vue-bulma",
         "vue-spa"
     ],
-    "homepage": "https://www.laravel-enso.com",
+    "homepage": "https://github.com/laravel-enso/user-groups",
     "require": {
         "laravel-enso/core": "^12.0",
         "laravel-enso/enums": "^3.0",
