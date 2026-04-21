@@ -75,6 +75,18 @@ class UserGroupTest extends TestCase
     }
 
     #[Test]
+    public function can_get_user_group_options()
+    {
+        $this->testModel->save();
+
+        $this->get(route('administration.userGroups.options', [
+            'query' => $this->testModel->name,
+            'limit' => 10,
+        ], false))->assertStatus(200)
+            ->assertJsonFragment(['name' => $this->testModel->name]);
+    }
+
+    #[Test]
     public function cant_destroy_user_group_when_having_users_attached()
     {
         $this->testModel->save();
@@ -87,5 +99,18 @@ class UserGroupTest extends TestCase
             ->assertStatus(409);
 
         $this->assertNotNull($this->testModel->fresh());
+    }
+
+    #[Test]
+    public function validates_unique_name_on_store()
+    {
+        $this->testModel->save();
+
+        $this->post(route('administration.userGroups.store', [], false), [
+            'name' => $this->testModel->name,
+            'description' => 'Duplicate',
+            'roles' => [],
+        ])->assertStatus(302)
+            ->assertSessionHasErrors(['name']);
     }
 }
