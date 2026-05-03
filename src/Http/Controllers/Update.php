@@ -11,7 +11,7 @@ class Update extends Controller
     public function __invoke(ValidateUserGroup $request, UserGroup $userGroup)
     {
         $userGroup->updateWithRoles(
-            $request->validatedExcept('roles'),
+            $request->safe()->except('roles'),
             $request->get('roles')
         );
 

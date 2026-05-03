@@ -11,7 +11,7 @@ class Store extends Controller
     public function __invoke(ValidateUserGroup $request, UserGroup $userGroup)
     {
         $userGroup = $userGroup->storeWithRoles(
-            $request->validatedExcept('roles'),
+            $request->safe()->except('roles'),
             $request->get('roles')
         );
 
