@@ -8,8 +8,6 @@ class Conflict extends ConflictHttpException
 {
     public static function hasUsers()
     {
-        $message = "The user group has users attached and can't be deleted";
-
-        return new self(__($message));
+        return new self(__("The user group has users attached and can't be deleted"));
     }
 }
